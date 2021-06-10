@@ -11,6 +11,7 @@ pytest = "*"
 sqlalchemy = "*"
 requests = "*"
 alembic = "*"
+pydantic = {extras = ["dotenv", "email"], version = "*"}
 
 [dev-packages]
 pytest-watch = "*"

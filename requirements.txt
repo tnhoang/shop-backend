@@ -5,13 +5,15 @@
 #    pipenv lock --requirements
 #
 
-# -i https://pypi.org/simple
+-i https://pypi.org/simple
 alembic==1.6.5
 asgiref==3.3.4; python_version >= '3.6'
 attrs==21.2.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
 certifi==2021.5.30
 chardet==4.0.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
 click==8.0.1; python_version >= '3.6'
+dnspython==2.1.0; python_version >= '3.6'
+email-validator==1.1.2
 fastapi==0.65.2
 greenlet==1.1.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
 gunicorn==20.1.0
@@ -23,10 +25,11 @@ markupsafe==2.0.1; python_version >= '3.6'
 packaging==20.9; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 pluggy==0.13.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 py==1.10.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-pydantic==1.8.2; python_full_version >= '3.6.1'
+pydantic[dotenv,email]==1.8.2
 pyparsing==2.4.7; python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'
 pytest==6.2.4
 python-dateutil==2.8.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
+python-dotenv==0.17.1
 python-editor==1.0.4
 requests==2.25.1
 six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
