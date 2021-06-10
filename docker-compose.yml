@@ -5,13 +5,12 @@ services:
     build: .
     ports:
       - "8000:8000"
+    restart: always
     depends_on:
       - db
-    #     environment:
-    #       SQLALCHEMY_DATABASE_URI: "postgresql://postgres:test@127.0.0.1:5433"
-    #       API_V1_STR: "/api/v1"
-    #       FIRST_SUPERUSER: "user1@gmail.com"
-    #       FIRST_SUPERUSER_PASSWORD: "password"
+    environment:
+      SQLALCHEMY_DATABASE_URI: "postgresql://postgres:test@127.0.0.1:5433"
+      API_V1_STR: "/api/v1"
     volumes:
       # map "folder" with WORKDIR/"folder" for auto reload if changes in local src
       - ./app:/app/app
@@ -21,5 +20,6 @@ services:
     image: postgres:12
     ports:
       - "5433:5432"
+    restart: always
     environment:
       POSTGRES_PASSWORD: postgres
