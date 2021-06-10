@@ -12,6 +12,7 @@ sqlalchemy = "*"
 requests = "*"
 alembic = "*"
 pydantic = {extras = ["dotenv", "email"], version = "*"}
+psycopg2 = "*"
 
 [dev-packages]
 pytest-watch = "*"
