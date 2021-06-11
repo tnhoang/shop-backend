@@ -13,6 +13,7 @@ requests = "*"
 alembic = "*"
 pydantic = {extras = ["dotenv", "email"], version = "*"}
 psycopg2 = "*"
+factory-boy = "*"
 
 [dev-packages]
 pytest-watch = "*"
