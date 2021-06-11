@@ -21,4 +21,4 @@ class Settings(BaseSettings):
         case_sensitive = True
 
 
-Settings = Settings()
+settings = Settings()
