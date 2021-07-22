@@ -1,7 +1,7 @@
-from app.tests.utils.factory import ItemFactory
+from app.tests.factories.item import ItemFactory
 
 
-def test_item_factory() -> None:
-    item = ItemFactory.stub()
-    assert item.title == "title"
-    assert item.description == "description"
+def test_item_factory():
+    item1 = ItemFactory()
+    item2 = ItemFactory()
+    assert item1.title == item2.title
