@@ -5,6 +5,7 @@
 ### Custom ###
 .vscode
 .env
+.testmondata
 
 ### macOS ###
 # General
