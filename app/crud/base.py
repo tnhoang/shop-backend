@@ -11,9 +11,9 @@ UpdateSchemaType = TypeVar("UpdateSchemaType", bound=BaseModel)
 
 
 class CRUDBase:
-    def __init__(self, model: ModelType):
+    def __init__(self, model: ModelType, session: Session):
         self.model: Base = model
-        self.db: Session = Session()
+        self.db = session
 
     def get(self, id: int):
         return self.db.query(self.model).filter(self.model.id == id).first()
