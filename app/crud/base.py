@@ -1,9 +1,11 @@
 from typing import Any, Dict, TypeVar, Union
 
+import sqlalchemy
+from pydantic import BaseModel
+from fastapi.encoders import jsonable_encoder
+
 from app.db.base_class import Base
 from app.db.session import Session
-from fastapi.encoders import jsonable_encoder
-from pydantic.main import BaseModel
 
 ModelType = TypeVar("ModelType", bound=Base)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)
@@ -26,7 +28,12 @@ class CRUDBase:
         obj = self.model(**obj_data)
 
         self.db.add(obj)
-        self.db.commit()
+        try:
+            self.db.commit()
+        # Raise IntegrityError when conflict with an existed object.
+        except sqlalchemy.exc.IntegrityError as e:
+            self.db.rollback()
+            return False
         self.db.refresh(obj)
         return obj
 
@@ -49,6 +56,8 @@ class CRUDBase:
 
     def delete(self, id: int):
         obj = self.db.query(self.model).get(id)
+        if not obj:
+            return False
         self.db.delete(obj)
         self.db.commit()
         return True
