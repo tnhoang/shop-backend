@@ -1,6 +1,8 @@
 Notes:
 - factory and crud can not using the same session.
 - If bind session to Factory, cannot using that session in query again ([reference](https://stackoverflow.com/questions/22887897/how-to-use-factory-boy-with-sqlalchemy-session-lazy-loaded-correctly))
+- migrate: alembic revision --autogenerate -m ""
+- upgrade: alembic upgrade head
 
 ``` python
     # FAIL: Can not using session like this
