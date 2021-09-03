@@ -6,11 +6,20 @@ from pydantic import BaseModel
 # Shared properties
 class UserBase(BaseModel):
     id: int
-    full_name: Optional[str] = None
-    email: Optional[str] = None
-    hashed_password: Optional[str] = None
+    username: Optional[str] = None
+    # hashed_password: Optional[str] = None
 
 
 # Properties to receive on item creation
-class UserCreate(UserBase):
-    pass
+class UserSignUp(BaseModel):
+    username: str
+    password: str
+
+
+class UserUpdate(BaseModel):
+    isActive: bool
+
+
+class UserSignIn(BaseModel):
+    username: str
+    password: str

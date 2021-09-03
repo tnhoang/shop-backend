@@ -17,6 +17,9 @@ factory-boy = "*"
 passlib = "*"
 bcrypt = "*"
 pyjwt = "*"
+nplusone = "*"
+safety = "*"
+bandit = "*"
 
 [dev-packages]
 pytest-watch = "*"

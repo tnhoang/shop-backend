@@ -7,8 +7,15 @@ class UserFactory(BaseFactory):
     class Meta:
         model = User
 
-    full_name = factory.Faker("name")
-    email = factory.Faker("email")
+    username = factory.Faker("name")
     hashed_password = factory.Faker("text")
     is_active = True
     is_superuser = False
+
+
+class UserCreateInDB(BaseFactory):
+    class Meta:
+        model = User
+
+    username = factory.Faker("name")
+    password = factory.Faker("name")

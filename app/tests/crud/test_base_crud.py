@@ -52,9 +52,11 @@ class TestGet(Setup):
 
 class TestGetMulti(Setup):
     def test_get_multi_objects_successfully(self):
-        expected_objects = self.generator.create_objects(10)
+        expected_objects = self.generator.create_objects(2)
         actual_objects = self.crud.get_multi()
-        assert actual_objects == expected_objects
+
+        sort_by_id = lambda obj: obj.id
+        assert sorted(actual_objects, key=sort_by_id) == sorted(expected_objects, key=sort_by_id)
 
 
 class TestCreate(Setup):
