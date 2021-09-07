@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 EXPOSE 8000
 
 # This's gonna create folder /app and cd app in docker container
-WORKDIR /app
+WORKDIR /code
 
 # This's gonna copy to WORKDIR
 COPY requirements.txt .
@@ -13,8 +13,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # This's gonna copy to WORKDIR/app
-COPY ./app ./app
-
+COPY . .
 # COPY ./app ./
 
 # After all tree in docker container will be like this

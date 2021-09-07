@@ -15,7 +15,6 @@ class Settings(BaseSettings):
         return v
 
     SQLALCHEMY_DATABASE_URI: str
-    SQLALCHEMY_DATABASE_URI_TEST: str
 
     class Config:
         env_file = ".env"
