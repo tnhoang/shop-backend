@@ -3,21 +3,24 @@ version: "3.9"
 services:
   app:
     build: .
+    image: fastapi
+    container_name: fastapi
     ports:
       - "8000:8000"
     restart: always
     depends_on:
       - db
     environment:
-      SQLALCHEMY_DATABASE_URI: "postgresql://postgres:test@127.0.0.1:5433"
+      SQLALCHEMY_DATABASE_URI: "postgresql://postgres:postgres@db:5433"
       API_V1_STR: "/api/v1"
     volumes:
       # map "folder" with WORKDIR/"folder" for auto reload if changes in local src
-      - ./app:/app/app
+      - .:/code
     # command: uvicorn --host=0.0.0.0 --reload app.main:app
 
   db:
     image: postgres:12
+    container_name: db
     ports:
       - "5433:5432"
     restart: always
