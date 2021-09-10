@@ -11,7 +11,6 @@ services:
     depends_on:
       - db
     environment:
-      SQLALCHEMY_DATABASE_URI: "postgresql://postgres:postgres@db:5433"
       API_V1_STR: "/api/v1"
     volumes:
       # map "folder" with WORKDIR/"folder" for auto reload if changes in local src
@@ -22,7 +21,7 @@ services:
     image: postgres:12
     container_name: db
     ports:
-      - "5433:5432"
+      - "5432:5432"
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
