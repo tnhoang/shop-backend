@@ -12,6 +12,7 @@ services:
       - db
     environment:
       API_V1_STR: "/api/v1"
+      SQLALCHEMY_DATABASE_URI: postgresql://postgres:postgres@db:5432"
     volumes:
       # map "folder" with WORKDIR/"folder" for auto reload if changes in local src
       - .:/code
